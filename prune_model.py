@@ -2,6 +2,7 @@ import os
 import argparse
 import torch
 import torch.nn as nn
+import numpy as np
 from models.mobilenet_pt import MobileNetv1
 import torch_pruning as tp
 import torchvision.datasets as dsets
@@ -177,5 +178,13 @@ def prune_network(model, metric, prune_ratio, iterative_steps=5, fine_tune_epoch
 print('Accuracy without pruning')
 test(model)
 print(model)
-prune_network(model, args.prune_metric, args.prune_ratio,
+model_pruned = prune_network(model, args.prune_metric, args.prune_ratio,
               args.iter_steps, args.finetune_epoch)
+
+total_param_list = [p for p in model_pruned.parameters()]
+trainable_param_list = [p for p in model_pruned.parameters() if p.requires_grad]
+num_trainable_params = 0
+for param in trainable_param_list:
+    num_trainable_params += np.prod(param.cpu().data.numpy().shape)
+
+print('Total number of trainable parameters : %d' % num_trainable_params)

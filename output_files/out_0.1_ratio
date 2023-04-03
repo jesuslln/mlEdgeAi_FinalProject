@@ -1,0 +1,545 @@
+Files already downloaded and verified
+Accuracy without pruning
+Test loss: 1.2766 Test accuracy: 77.37 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+      (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128, bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256, bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256, bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=512, bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
+      (bn1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=1024, out_features=10, bias=True)
+)
+Ietration 1 out of 5; Before fine-tuning
+Test loss: 1.2900 Test accuracy: 76.79 %
+
+Ietration 1 out of 5; After fine-tuning
+Test loss: 1.8260 Test accuracy: 75.33 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 31, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(31, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(31, 31, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=31, bias=False)
+      (bn1): BatchNorm2d(31, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(31, 62, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(62, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(62, 62, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=62, bias=False)
+      (bn1): BatchNorm2d(62, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(62, 125, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(125, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(125, 125, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=125, bias=False)
+      (bn1): BatchNorm2d(125, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(125, 125, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(125, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(125, 125, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=125, bias=False)
+      (bn1): BatchNorm2d(125, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(125, 250, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(250, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(250, 250, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=250, bias=False)
+      (bn1): BatchNorm2d(250, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(250, 250, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(250, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(250, 250, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=250, bias=False)
+      (bn1): BatchNorm2d(250, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(250, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 501, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(501, 501, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=501, bias=False)
+      (bn1): BatchNorm2d(501, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(501, 1003, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1003, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(1003, 1003, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1003, bias=False)
+      (bn1): BatchNorm2d(1003, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(1003, 1003, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(1003, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=1003, out_features=10, bias=True)
+)
+Ietration 2 out of 5; Before fine-tuning
+Test loss: 1.8456 Test accuracy: 74.26 %
+
+Ietration 2 out of 5; After fine-tuning
+Test loss: 1.8570 Test accuracy: 74.92 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 30, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(30, 30, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=30, bias=False)
+      (bn1): BatchNorm2d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(30, 61, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(61, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(61, 61, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=61, bias=False)
+      (bn1): BatchNorm2d(61, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(61, 122, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(122, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(122, 122, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=122, bias=False)
+      (bn1): BatchNorm2d(122, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(122, 122, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(122, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(122, 122, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=122, bias=False)
+      (bn1): BatchNorm2d(122, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(122, 245, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(245, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(245, 245, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=245, bias=False)
+      (bn1): BatchNorm2d(245, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(245, 245, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(245, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(245, 245, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=245, bias=False)
+      (bn1): BatchNorm2d(245, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(245, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 491, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(491, 491, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=491, bias=False)
+      (bn1): BatchNorm2d(491, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(491, 983, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(983, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(983, 983, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=983, bias=False)
+      (bn1): BatchNorm2d(983, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(983, 983, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(983, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=983, out_features=10, bias=True)
+)
+Ietration 3 out of 5; Before fine-tuning
+Test loss: 1.8520 Test accuracy: 73.65 %
+
+Ietration 3 out of 5; After fine-tuning
+Test loss: 1.9142 Test accuracy: 74.34 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 30, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(30, 30, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=30, bias=False)
+      (bn1): BatchNorm2d(30, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(30, 60, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(60, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(60, 60, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=60, bias=False)
+      (bn1): BatchNorm2d(60, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(60, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(120, 120, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=120, bias=False)
+      (bn1): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(120, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(120, 120, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=120, bias=False)
+      (bn1): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(120, 240, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(240, 240, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=240, bias=False)
+      (bn1): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(240, 240, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(240, 240, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=240, bias=False)
+      (bn1): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(240, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 481, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(481, 481, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=481, bias=False)
+      (bn1): BatchNorm2d(481, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(481, 962, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(962, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(962, 962, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=962, bias=False)
+      (bn1): BatchNorm2d(962, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(962, 962, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(962, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=962, out_features=10, bias=True)
+)
+Ietration 4 out of 5; Before fine-tuning
+Test loss: 1.9408 Test accuracy: 73.16 %
+
+Ietration 4 out of 5; After fine-tuning
+Test loss: 1.8954 Test accuracy: 73.72 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(29, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(29, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=29, bias=False)
+      (bn1): BatchNorm2d(29, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(29, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(58, 58, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=58, bias=False)
+      (bn1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(58, 117, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(117, 117, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=117, bias=False)
+      (bn1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(117, 117, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(117, 117, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=117, bias=False)
+      (bn1): BatchNorm2d(117, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(117, 235, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(235, 235, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=235, bias=False)
+      (bn1): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(235, 235, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(235, 235, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=235, bias=False)
+      (bn1): BatchNorm2d(235, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(235, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 471, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(471, 471, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=471, bias=False)
+      (bn1): BatchNorm2d(471, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(471, 942, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(942, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(942, 942, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=942, bias=False)
+      (bn1): BatchNorm2d(942, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(942, 942, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(942, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=942, out_features=10, bias=True)
+)
+Ietration 5 out of 5; Before fine-tuning
+Test loss: 1.8922 Test accuracy: 71.72 %
+
+Ietration 5 out of 5; After fine-tuning
+Test loss: 1.9534 Test accuracy: 73.14 %
+
+MobileNetv1(
+  (conv1): Conv2d(3, 28, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn1): BatchNorm2d(28, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layers): Sequential(
+    (0): Block(
+      (conv1): Conv2d(28, 28, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=28, bias=False)
+      (bn1): BatchNorm2d(28, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(28, 57, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(57, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): Block(
+      (conv1): Conv2d(57, 57, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=57, bias=False)
+      (bn1): BatchNorm2d(57, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(57, 115, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(115, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): Block(
+      (conv1): Conv2d(115, 115, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=115, bias=False)
+      (bn1): BatchNorm2d(115, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(115, 115, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(115, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): Block(
+      (conv1): Conv2d(115, 115, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=115, bias=False)
+      (bn1): BatchNorm2d(115, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(115, 230, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(230, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): Block(
+      (conv1): Conv2d(230, 230, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=230, bias=False)
+      (bn1): BatchNorm2d(230, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(230, 230, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(230, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): Block(
+      (conv1): Conv2d(230, 230, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=230, bias=False)
+      (bn1): BatchNorm2d(230, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(230, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (9): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (10): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 460, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (11): Block(
+      (conv1): Conv2d(460, 460, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=460, bias=False)
+      (bn1): BatchNorm2d(460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(460, 921, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(921, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (12): Block(
+      (conv1): Conv2d(921, 921, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=921, bias=False)
+      (bn1): BatchNorm2d(921, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(921, 921, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn2): BatchNorm2d(921, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (linear): Linear(in_features=921, out_features=10, bias=True)
+)
+Total number of trainable parameters : 2606173
