@@ -13,7 +13,6 @@ from set_seed import set_random_seed
 parser = argparse.ArgumentParser(description='EE361K project get latency')
 parser.add_argument('--model', type=str,
                     default='mobilenetv1', help='Name of model')
-parser.add_argument('--prune_ratio', type=float, help='pruning ratio')
 parser.add_argument('--prune_metric', type=str,
                     default='l1', help='metric used for pruning')
 parser.add_argument('--iter_steps', type=int, default=5,
@@ -35,7 +34,7 @@ os.makedirs('pruned', exist_ok=True)
 
 ckpt = torch.load(f'ckpt/{model_str}.pt')
 model.load_state_dict(ckpt)
-
+print(len(model.modules()))
 # torch.save(model, f'pruned/{model_str}_raw.pth')
 
 random_seed = 1
@@ -129,26 +128,27 @@ def test(model):
     return 100. * test_correct / test_total
 
 
-def prune_network(model, metric, prune_ratio, iterative_steps=5, fine_tune_epochs=1, ignored_layers=None):
-    assert 0 < prune_ratio < 1
+def prune_network(model, metric, iterative_steps=5, fine_tune_epochs=1, ignored_layers=None):
 
     if metric.lower() == 'l1':
         imp = tp.importance.MagnitudeImportance(p=1)
     if metric.lower() == 'l2':
         imp = tp.importance.MagnitudeImportance(p=2)
 
-    ## Create csv to store data for each pruning factor
+    # Create csv to store data for each pruning factor
     with open("exploration_data.csv", 'w+') as csv_file:
-        csv_file.write(f" Layer_1,Layer_2,Layer_3,Layer_4,Layer_5,Layer_6,Layer_7,Layer_8,Layer_9\n")
+        csv_file.write(
+            f" Layer_1,Layer_2,Layer_3,Layer_4,Layer_5,Layer_6,Layer_7,Layer_8,Layer_9\n")
         # csv_file.write(f "{}, {}, {}\n") -- print row
 
-        ## Itereate through 10 different pruning factors
-        for p in range(9) :
+        # Itereate through 10 different pruning factors
+        for p in range(9):
             prune_ratio = 0.1 * (p+1)
 
-            ## Iterate through the model and get acc of each layer after prunning
+            # Iterate through the model and get acc of each layer after prunning
 
             accuracy_list = []
+            print(len(model.modules()))
             for m in model.modules():
 
                 if m.out_features != 10:
@@ -168,12 +168,15 @@ def prune_network(model, metric, prune_ratio, iterative_steps=5, fine_tune_epoch
 
                     for i in range(iterative_steps):
                         pruner.step()
-                        macs, nparams = tp.utils.count_ops_and_params(model, example_inputs)
-                        print('Ietration {} out of {}; Before fine-tuning'.format(i+1, iterative_steps))
+                        macs, nparams = tp.utils.count_ops_and_params(
+                            model, example_inputs)
+                        print(
+                            'Ietration {} out of {}; Before fine-tuning'.format(i+1, iterative_steps))
                         test(model)
                         for j in range(fine_tune_epochs):
                             fine_tune(model)
-                        print('Ietration {} out of {}; After fine-tuning'.format(i+1, iterative_steps))
+                        print(
+                            'Ietration {} out of {}; After fine-tuning'.format(i+1, iterative_steps))
                         test(model)
                         print(model)
 
@@ -186,14 +189,16 @@ def prune_network(model, metric, prune_ratio, iterative_steps=5, fine_tune_epoch
                 model = MobileNetv1()
                 model.load_state_dict(ckpt)
                 model = model.to('cuda:0')
-                example_inputs = torch.randn(1, 3, 32, 32).to(torch.device('cuda:0'))
+                example_inputs = torch.randn(
+                    1, 3, 32, 32).to(torch.device('cuda:0'))
                 DG = tp.DependencyGraph()
                 DG.build_dependency(model, example_inputs)
 
             # print all the accuracies
             counter = 0
             for acc in accuracy_list:
-                print('Layer {} has an accuracy of {}; After fine-tuning'.format(counter, acc))
+                print(
+                    'Layer {} has an accuracy of {}; After fine-tuning'.format(counter, acc))
                 counter += 1
             csv_file.write(
                 f"{accuracy_list[0]}, {accuracy_list[1]}, {accuracy_list[2]}, {accuracy_list[3]}, {accuracy_list[4]}, {accuracy_list[5]},{accuracy_list[6]}, {accuracy_list[7]}, {accuracy_list[8]},{accuracy_list[9]}\n")
