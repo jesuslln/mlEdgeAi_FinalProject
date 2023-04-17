@@ -31,8 +31,8 @@ vds = CIFAR10(root='data', train=False, transform=transforms.Compose([
     transforms.Normalize(mean=(0.4914, 0.4822, 0.4465),
                          std=(0.2023, 0.1994, 0.2010)),
 ]))
-tdl = DataLoader(tds, batch_size=512, shuffle=True, num_workers=2)
-vdl = DataLoader(vds, batch_size=512, shuffle=False, num_workers=2)
+tdl = DataLoader(tds, batch_size=128, shuffle=True, num_workers=2)
+vdl = DataLoader(vds, batch_size=128, shuffle=False, num_workers=2)
 
 
 class CIFAR10Reader(CalibrationDataReader):
