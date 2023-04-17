@@ -27,14 +27,11 @@ set_random_seed(233)
 
 
 model_str = args.model.lower()
-if args.model.lower() == 'mobilenetv1':
-    model = MobileNetv1()
-os.makedirs('pruned', exist_ok=True)
+# if args.model.lower() == 'mobilenetv1':
+#     model = MobileNetv1()
+# os.makedirs('pruned', exist_ok=True)
 
 
-ckpt = torch.load(f'ckpt/{model_str}.pt')
-model.load_state_dict(ckpt)
-print(len(model.modules()))
 # torch.save(model, f'pruned/{model_str}_raw.pth')
 
 random_seed = 1
@@ -128,12 +125,8 @@ def test(model):
     return 100. * test_correct / test_total
 
 
-def prune_network(model, metric, iterative_steps=5, fine_tune_epochs=1, ignored_layers=None):
+def prune_network(metric, iterative_steps=5, fine_tune_epochs=1, ignored_layers=None):
 
-    if metric.lower() == 'l1':
-        imp = tp.importance.MagnitudeImportance(p=1)
-    if metric.lower() == 'l2':
-        imp = tp.importance.MagnitudeImportance(p=2)
 
     # Create csv to store data for each pruning factor
     with open("exploration_data.csv", 'w+') as csv_file:
@@ -143,12 +136,28 @@ def prune_network(model, metric, iterative_steps=5, fine_tune_epochs=1, ignored_
 
         # Itereate through 10 different pruning factors
         for p in range(9):
+            # Generate a base model
+
+            model = MobileNetv1()
+            ckpt = torch.load(f'ckpt/{model_str}.pt')
+            model.load_state_dict(ckpt)
+
+            model = model.to('cuda:0')
+            example_inputs = torch.randn(
+                1, 3, 32, 32).to(torch.device('cuda:0'))
+            DG = tp.DependencyGraph()
+            DG.build_dependency(model, example_inputs)
+
+            if metric.lower() == 'l1':
+                imp = tp.importance.MagnitudeImportance(p=1)
+            if metric.lower() == 'l2':
+                imp = tp.importance.MagnitudeImportance(p=2)
+
             prune_ratio = 0.1 * (p+1)
 
             # Iterate through the model and get acc of each layer after prunning
 
             accuracy_list = []
-            print(len(model.modules()))
             for m in model.modules():
 
                 if m.out_features != 10:
@@ -185,14 +194,7 @@ def prune_network(model, metric, iterative_steps=5, fine_tune_epochs=1, ignored_
 
                 # Store the acc after pruning each layer only
                 accuracy_list.append(test(model))
-                # Generate a base model
-                model = MobileNetv1()
-                model.load_state_dict(ckpt)
-                model = model.to('cuda:0')
-                example_inputs = torch.randn(
-                    1, 3, 32, 32).to(torch.device('cuda:0'))
-                DG = tp.DependencyGraph()
-                DG.build_dependency(model, example_inputs)
+
 
             # print all the accuracies
             counter = 0
@@ -206,8 +208,8 @@ def prune_network(model, metric, iterative_steps=5, fine_tune_epochs=1, ignored_
     return model
 
 
-print('Accuracy without pruning')
-test(model)
-print(model)
-prune_network(model, args.prune_metric, args.prune_ratio,
+# print('Accuracy without pruning')
+# test(model)
+# print(model)
+prune_network( args.prune_metric,
               args.iter_steps, args.finetune_epoch)
