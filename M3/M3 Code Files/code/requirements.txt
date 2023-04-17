@@ -1,0 +1,12 @@
+matplotlib
+numpy
+onnx
+onnxconverter-common
+onnxruntime
+protobuf
+thop
+torch==1.12.0
+torch-pruning
+torchsummary
+torchvision
+virtualenv

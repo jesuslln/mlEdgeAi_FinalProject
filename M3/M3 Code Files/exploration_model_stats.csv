@@ -1,0 +1,7 @@
+﻿Pruning Fraction,Test Accuracy,Inference Time [s],Max Memory [MB],# Params,Average Latency/ Image [ms],Max Power [W],Average Energy Consumption/ Image [mJ],,,,,
+0.1,73.14,167.057,35,2606173,16.7,4.454,42.431,,,,,batch size = 128
+0.1,73.14,164.138,38,2606173,16.4,4.477,42.7603,,,,,batch size = 256
+0.1,73.14,188.242,54,2606173,18.8,4.45,41.7262,,,,,batch size = 512
+0.2,70.34,158.052,23,2066884,15.8,4.496,41.7134,,,,,batch size = 128
+0.2,70.06,149.578,29,2066884,14.9,4.458,41.9513,,,,,batch size = 256
+0.2,70.06,166.486,38,2066884,16.6,4.462,41.4575,,,,,batch size = 512
